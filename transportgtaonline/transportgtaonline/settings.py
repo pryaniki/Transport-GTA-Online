@@ -28,11 +28,16 @@ DEBUG = True
 ALLOWED_HOSTS = []
 AUTH_USER_MODEL = 'users.CustomUser'
 
+# djmoney
+CURRENCIES = ('USD',)
+CURRENCY_CHOICES = [('USD', '$')]
+
 # Application definition
 
 INSTALLED_APPS = [
     'transport.apps.TransportConfig',
     'users.apps.UsersConfig',
+    'djmoney',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
