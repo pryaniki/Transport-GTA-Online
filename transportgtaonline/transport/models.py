@@ -1,3 +1,6 @@
 from django.db import models
+from .abstracts import BaseTable
 
-# Create your models here.
+
+class Brand(BaseTable):
+    pass
