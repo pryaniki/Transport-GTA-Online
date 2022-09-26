@@ -26,17 +26,20 @@ SECRET_KEY = 'django-insecure-xz#(g19g@n=7f45&^!c5=e+ay0x8pmmo3)h!_#x49kd3lnc&2_
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+AUTH_USER_MODEL = 'users.CustomUser'
 
 # Application definition
 
 INSTALLED_APPS = [
+    'transport.apps.TransportConfig',
+    'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
 ]
 
 MIDDLEWARE = [
