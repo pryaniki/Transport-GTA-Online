@@ -6,6 +6,10 @@ class Brand(BaseTable):
     pass
 
 
+class Shop(BaseTable):
+    pass
+
+
 class Update(BaseTable):
     date = models.DateField()
 

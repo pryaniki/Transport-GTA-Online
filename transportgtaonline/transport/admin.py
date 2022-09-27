@@ -6,6 +6,7 @@ from users.models import CustomUser
 
 admin.site.register(Brand)
 admin.site.register(Update)
+admin.site.register(Shop)
 
 admin.site.register(GroundCategory)
 admin.site.register(Ground)
