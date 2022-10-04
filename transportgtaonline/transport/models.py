@@ -7,7 +7,6 @@ class Brand(BaseTable):
 
 
 class Shop(BaseTable):
-    ground = models.ManyToManyField('Ground')
     pass
 
 
@@ -22,8 +21,9 @@ class GroundCategory(BaseTable):
 
 
 class Ground(Transport):
-    cat = models.ForeignKey('GroundCategory', on_delete=models.PROTECT, null=True, verbose_name='Категория')
+    cats = models.ManyToManyField('GroundCategory', verbose_name='Категория')
     shop = None
+    shops = models.ManyToManyField('Shop', related_name='ground_shop', verbose_name='Магазин')
 
     class Meta(Transport.Meta):
         verbose_name = 'Наземный транспорт'
