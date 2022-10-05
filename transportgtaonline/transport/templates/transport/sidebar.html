@@ -1,0 +1,27 @@
+{% load static %}
+
+ <aside class="sidebar">
+    <nav class="sidebar__menu">
+        <ul class="sidebar__list">
+            <li>
+                <a href="#" class="sidebar__link">Производитель</a>
+            </li>
+            <li>
+                <a href="#" class="sidebar__link">Категория транспорта</a>
+                <ul class="sub-sidebar__list">
+                {% for c in cats %}
+                   <li> <a href="#" class="sub-sidebar__link"> {{ c.name }} (n)</a> </li>
+                {% endfor %}
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="sidebar__link">Магазин</a>
+                <ul class="sub-sidebar__list">
+                {% for s in shops %}
+                   <li> <a href="#" class="sub-sidebar__link"> {{ s.name }} (n)</a> </li>
+                {% endfor %}
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</aside>

@@ -1,0 +1,41 @@
+{% load static %}
+ <header class="header">
+    <a href="{% url 'home' %}" class="logo"></a>
+    <nav class="menu">
+        <ul class="menu__list">
+            <li>
+                <a href="#" class="menu__link">Весь транспорт</a>
+            </li>
+            <li>
+                <a href="{% url 'ground_transport' %}" class="menu__link">Наземный транспорт</a>
+            </li>
+            <li>
+                <a href="#" class="menu__link">Воздушный транспорт</a>
+            </li>
+            <li>
+                <a href="#" class="menu__link">Водный транспорт</a>
+            </li>
+            <li>
+                <a href="#" class="menu__link">Гараж</a>
+            </li>
+            <li>
+                <a href="#" class="menu__link">Список желаний</a>
+                <ul class="sub-menu__list">
+                    <li>
+                        <a href="#" class="sub-menu__link">Наземный транспорт</a>
+                    </li>
+                    <li>
+                        <a href="#" class="sub-menu__link">Воздушный транспорт</a>
+                    </li>
+                    <li>
+                        <a href="#" class="sub-menu__link">Водный транспорт</a>
+                    </li>
+                </ul>
+
+            </li>
+        </ul>
+        <div class="burger">
+            <span></span>
+        </div>
+    </nav>
+</header>

@@ -21,8 +21,8 @@ class GroundCategory(BaseTable):
 
 
 class Ground(Transport):
-    cats = models.ManyToManyField('GroundCategory', verbose_name='Категория')
     shop = None
+    cats = models.ManyToManyField('GroundCategory', verbose_name='Категория')
     shops = models.ManyToManyField('Shop', related_name='ground_shop', verbose_name='Магазин')
 
     class Meta(Transport.Meta):

@@ -3,19 +3,35 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width">
       <link rel="shortcut icon" href="{% static 'transport/images/main.ico' %}" type="image/x-icon"/>
     <title>{{title}}</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="{% static 'transport/css/style.css' %}" rel="stylesheet">
   </head>
   <body>
+    <div class="wrapper">
+        {% include 'transport/menu.html' %}
 
-	{% include 'transport/navbar.html' %}
-	{% block content %}
-	{% endblock %}
-	<h1>{{title}}</h1>
+    <!-- Контент (grid-элемент + grid-контейнер)-->
+    <main class="main">
+        {% include 'transport/sidebar.html' %}
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-  </body>
+        <section class="content">
+            <section class="content__transports transports">
+                <h2>{{title}}</h2>
+                <div class="transports__items">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </section>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer__copy">
+            Copy, 2022
+        </div>
+        <div class="footer__text">Lorem ipsum, dolor sit amet</div>
+    </footer>
+ </div>
+</body>
 </html>

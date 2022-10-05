@@ -2,4 +2,15 @@
 
 
 {% block content %}
+    {% for t in transports %}
+        <div class="transports__item">
+            {% if t.photo %}
+            <a href="{{ t.get_absolute_url }}" class="transports__image">
+                <img src="{{t.photo.url}}" alt="">
+            </a>
+            {% endif %}
+            <a href="{{ t.get_absolute_url }}" class="transports__name">{{t}}</a>
+            <a href="#" class="transports__button">В избранные</a>
+        </div>
+    {% endfor %}
 {% endblock %}

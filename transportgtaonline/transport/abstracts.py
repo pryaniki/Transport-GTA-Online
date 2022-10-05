@@ -1,5 +1,6 @@
 from djmoney.models.fields import MoneyField
 from django.db import models
+from django.urls import reverse
 
 
 class Transport(models.Model):
@@ -11,9 +12,9 @@ class Transport(models.Model):
     price = MoneyField(max_digits=9, decimal_places=0, default_currency='USD', verbose_name='Цена')
     capacity = models.DecimalField(max_digits=2, decimal_places=0, blank=True, null=True, default=None,
                                    verbose_name='Вместимость')
-    photo = models.ImageField(upload_to='photos/%Y/%m/%d/', null=True, verbose_name='Фото')
+    photo = models.ImageField(upload_to='media/images/uploaded/%Y/%m/%d/', blank=True, null=True, verbose_name='Фото')
     brand = models.ForeignKey('Brand', on_delete=models.PROTECT, null=True, verbose_name='Марка')
-    update = models.ForeignKey('Update', on_delete=models.PROTECT, null=True, verbose_name='Обновление')
+    update = models.ForeignKey('Update', on_delete=models.PROTECT, blank=True, null=True, verbose_name='Обновление')
     shop = models.ForeignKey('Shop', on_delete=models.PROTECT, null=True, verbose_name='Магазин')
 
     def __str__(self):
@@ -21,6 +22,9 @@ class Transport(models.Model):
 
     class Meta:
         abstract = True
+
+    def get_absolute_url(self):
+        return reverse('transport', kwargs={'transport_slug': self.slug})
 
 
 class BaseTable(models.Model):
