@@ -1,13 +1,14 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.db.models import Count
 
 from .models import Ground, GroundCategory, Shop
 
 
 def index(request):
     transports = Ground.objects.all()
-    cats = GroundCategory.objects.all()
-    shops = Shop.objects.all()
+    cats = Ground.objects.values('cats__name').annotate(total=Count('id'))
+    shops = Ground.objects.values('shops__name').annotate(total=Count('id'))
     context = {
         'title': 'Главная страница',
         'transports': transports,
