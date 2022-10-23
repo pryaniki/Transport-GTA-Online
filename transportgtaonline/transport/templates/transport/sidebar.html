@@ -10,7 +10,14 @@
                 <a href="#" class="sidebar__link">Категория транспорта</a>
                 <ul class="sub-sidebar__list">
                 {% for c in cats %}
-                   <li> <a href="#" class="sub-sidebar__link"> {{ c.cats__name}} ({{c.total}})</a> </li>
+                    <li> <a href="#" class="sub-sidebar__link">
+                        {% if c.cats__name %}
+                            {{c.cats__name}}
+                        {% elif c.cat__name %}
+                            {{c.cat__name}}
+                        {% endif %}
+                        ({{c.total}}) </a>
+                    </li>
                 {% endfor %}
                 </ul>
             </li>
@@ -18,7 +25,13 @@
                 <a href="#" class="sidebar__link">Магазин</a>
                 <ul class="sub-sidebar__list">
                 {% for s in shops %}
-                   <li> <a href="#" class="sub-sidebar__link"> {{ s.shops__name }} ({{s.total}})</a> </li>
+                   <li> <a href="#" class="sub-sidebar__link">
+                       {% if s.shop__name %}
+                           {{ s.shop__name }}
+                       {% elif s.shops__name %}
+                           {{ s.shops__name }}
+                       {% endif %}
+                       ({{s.total}})</a> </li>
                 {% endfor %}
                 </ul>
             </li>
